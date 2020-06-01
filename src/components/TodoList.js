@@ -6,11 +6,16 @@ import Todo from './Todo'
 const TodoList = props => {
 
     return (
-        <div>
+        <div className='big-grocery-list'>
+        <div className='grocery-list'>
             {props.todos.map(todo => (
                 <Todo todo={todo} toggleTodo={props.toggleTodo}></Todo>
             ))}
-            <button onClick={() => props.clearTodos(props.todo)}>Clear TODOS</button>
+            </div>
+            {/* <div className='button-style'> */}
+            <button className='clear-todo' onClick={() => props.clearTodos(props.todo)}>Clear list</button>
+            {/* </div> */}
+        
         </div>
     )
 }

@@ -5,11 +5,7 @@ import './styles.css'
 
 
 const todos = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
+ 
   
 ];
 
@@ -28,7 +24,7 @@ class App extends React.Component {
   addTodo = itemTask => {
     const newTodo = {
       task: itemTask,
-      id: new Date().now,
+      id: new Date(),
       completed: false
     }
     this.setState({
@@ -53,15 +49,15 @@ class App extends React.Component {
 
   clearTodos = e => {
     this.setState({
-      todos: [{}]
+      todos: []
     })
   }
 
   render() {
     return (
-      <div>
-        <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='big-div'>
+        <div className='app'>
+        <h2>The List</h2>
         
         <TodoForm addTodo={this.addTodo} />
         </div>
