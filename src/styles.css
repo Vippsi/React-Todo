@@ -1,0 +1,10 @@
+.todo{
+    
+    cursor: pointer;
+}
+
+.todo.completed {
+    background-color: red;
+    text-decoration: line-through;
+    background-color: white;
+}
