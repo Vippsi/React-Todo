@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import formSchema from './validation/formSchema'
+import * as yup from 'yup'
 import './styles.css'
 
 
@@ -18,6 +20,7 @@ class App extends React.Component {
     super()
     this.state = {
       todos: todos,
+      
     }
   }
 
@@ -27,10 +30,14 @@ class App extends React.Component {
       id: new Date(),
       completed: false
     }
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    })
-  }
+    localStorage.setItem('localTodo', JSON.stringify(newTodo))
+      this.setState({
+        todos: [...this.state.todos, newTodo]
+      })
+    
+    }
+    
+ 
 
   toggleTodo = todoId => {
     this.setState({
@@ -53,18 +60,24 @@ class App extends React.Component {
     })
   }
 
+    
+
+  
+
+  
   render() {
     return (
       <div className='big-div'>
         <div className='app'>
         <h2>The List</h2>
-        
+        {/* {console.log(todos.task.length())} */}
         <TodoForm addTodo={this.addTodo} />
         </div>
         <TodoList 
         todos={this.state.todos}
         toggleTodo={this.toggleTodo}
         clearTodos={this.clearTodos}
+        // newTodo={newTodo}
         
         />
       </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Todo = props => {
+    let item = JSON.parse(window.localStorage.getItem('localTodo'))
     return (
         <div
             onClick={() => props.toggleTodo(props.todo.id)}
